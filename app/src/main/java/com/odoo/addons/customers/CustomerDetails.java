@@ -232,6 +232,10 @@ public class CustomerDetails extends OdooCompatActivity
                             values.put("customer", "false");
                             values.put("supplier", "true");
                             break;
+                        case Student:
+                            values.put("customer", "false");
+                            values.put("student", "true");
+                            break;
                         default:
                             values.put("customer", "true");
                             break;

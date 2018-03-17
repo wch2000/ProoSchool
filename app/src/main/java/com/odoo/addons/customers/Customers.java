@@ -67,7 +67,7 @@ public class Customers extends BaseFragment implements ISyncStatusObserverListen
     private boolean syncRequested = false;
 
     public enum Type {
-        Customer, Supplier, Company
+        Customer, Supplier, Company ,Student
     }
 
     private Type mType = Type.Customer;
@@ -127,6 +127,9 @@ public class Customers extends BaseFragment implements ISyncStatusObserverListen
                 break;
             case Company:
                 where = "is_company = ?";
+                break;
+            case Student:
+                where = "student = ?";
                 break;
         }
         args.add("true");
@@ -198,6 +201,7 @@ public class Customers extends BaseFragment implements ISyncStatusObserverListen
                 .setIcon(R.drawable.ic_action_company)
                 .setExtra(extra(Type.Company))
                 .setInstance(new Customers()));
+
         return items;
     }
 
@@ -277,5 +281,7 @@ public class Customers extends BaseFragment implements ISyncStatusObserverListen
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         ODataRow row = OCursorUtils.toDatarow((Cursor) mAdapter.getItem(position));
         loadActivity(row);
+        Toast.makeText(view.getContext(), "id"+position, Toast.LENGTH_SHORT).show();
+
     }
 }

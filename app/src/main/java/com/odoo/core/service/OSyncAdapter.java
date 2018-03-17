@@ -28,6 +28,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.odoo.App;
+import com.odoo.Etudiant.SanctionSyncService;
+import com.odoo.Etudiant.Student;
 import com.odoo.R;
 import com.odoo.base.addons.ir.IrModel;
 import com.odoo.base.addons.res.ResCompany;
@@ -82,6 +84,8 @@ public class OSyncAdapter extends AbstractThreadedSyncAdapter {
         super(context, autoInitialize, allowParallelSyncs);
         init(context, model, service);
     }
+
+
 
     private void init(Context context, Class<? extends OModel> model, OSyncService service) {
         mContext = context;
